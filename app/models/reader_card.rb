@@ -23,4 +23,8 @@ class ReaderCard < ApplicationRecord
   belongs_to :user
   has_many :books_reader_cards
   has_many :books, through: :books_reader_cards
+
+  def self.sql_update_table(user_id, library_id, id)
+    ActiveRecord::Base.connection.execute("UPDATE reader_cards SET user_id = #{user_id}, library_id = #{library_id} WHERE id = #{id};")
+  end
 end

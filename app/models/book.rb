@@ -19,10 +19,14 @@
 #
 class Book < ApplicationRecord
   belongs_to :library
-  has_many :author_books
-  has_many :book_genres
-  has_many :book_reader_cards
-  has_many :authors, through: :author_books
-  has_many :genres, through: :book_genres
-  has_many :reader_cards, through: :book_reader_cards
+  has_many :author_books, dependent: :destroy
+  has_many :book_genres, dependent: :destroy
+  has_many :book_reader_cards, dependent: :destroy
+  has_many :authors, through: :author_books, dependent: :destroy
+  has_many :genres, through: :book_genres, dependent: :destroy
+  has_many :reader_cards, through: :book_reader_cards, dependent: :destroy
+
+  def update_table
+    self.update( title: 'Faker::Book.title', year: "1920", library_id: 26)
+  end
 end

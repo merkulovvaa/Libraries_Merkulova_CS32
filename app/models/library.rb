@@ -10,6 +10,10 @@
 #  updated_at   :datetime         not null
 #
 class Library < ApplicationRecord
-  has_many :books
-  has_many :reader_cards
+  has_many :books, dependent: :destroy
+  has_many :reader_cards, dependent: :destroy
+
+  def update_table
+    self.update(name: "UkLibrary", address: "Naukova, 59", phone_number: "084969395")
+  end
 end
