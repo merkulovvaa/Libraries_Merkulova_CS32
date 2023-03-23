@@ -1,7 +1,7 @@
 # README
 
 # Daria Merkulova CS32
-Library app
+Libraries app
 
 
 ### Labs
