@@ -28,3 +28,4 @@ end
 100.times do
   ActiveRecord::Base.connection.execute("INSERT INTO 'reader_cards' ('user_id', 'library_id','created_at', 'updated_at') VALUES ('#{User.last.id}', '#{Library.last.id}', datetime('now'), datetime('now'));")
 end
+

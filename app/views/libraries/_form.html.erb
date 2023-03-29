@@ -1,0 +1,12 @@
+<%= form_with(model: @library, html: { multipart: true }, local: true) do |f| %>
+  <p><%= f.label :name %></p>
+  <p><%= f.text_field :name %></p>
+
+  <p><%= f.label :address %></p>
+  <p><%= f.text_field :address %></p>
+
+  <p><%= f.label :phone_number %></p>
+  <p><%= f.text_field :phone_number %></p>
+
+  <p><%= f.submit %></p>
+<% end %>

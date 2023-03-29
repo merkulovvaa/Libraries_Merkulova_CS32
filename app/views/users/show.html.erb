@@ -1,0 +1,4 @@
+<p>id: <%= @user.id %></p>
+<p>full name: <%= @user.full_name %></p>
+
+<%= button_to "Remove user", user_path(@user), method: :delete %>

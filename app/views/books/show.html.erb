@@ -1,0 +1,4 @@
+<p>id: <%= @book.id %></p>
+<p>title: <%= @book.title %></p>
+
+<%= button_to "Remove book", book_path(@book), method: :delete %>

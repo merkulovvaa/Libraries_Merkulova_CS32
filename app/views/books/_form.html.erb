@@ -1,0 +1,9 @@
+<%= form_with(model: @book, html: { multipart: true }, local: true) do |f| %>
+  <p><%= f.label :title %></p>
+  <p><%= f.text_field :title %></p>
+
+  <p><%= f.label :library_id %></p>
+  <p><%= f.collection_select :library_id, Library.all, :id, :name %></p>
+
+  <p><%= f.submit %></p>
+<% end %>

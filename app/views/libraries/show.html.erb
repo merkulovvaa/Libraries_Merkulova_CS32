@@ -1,0 +1,4 @@
+<p>id: <%= @library.id %></p>
+<p>name: <%= @library.name %></p>
+
+<%= button_to "Remove library", library_path(@library), method: :delete %>

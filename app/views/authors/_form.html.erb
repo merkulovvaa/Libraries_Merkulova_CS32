@@ -1,0 +1,6 @@
+<%= form_with(model: @author, html: { multipart: true }, local: true) do |f| %>
+  <p><%= f.label :full_name %></p>
+  <p><%= f.text_field :full_name %></p>
+
+  <p><%= f.submit %></p>
+<% end %>

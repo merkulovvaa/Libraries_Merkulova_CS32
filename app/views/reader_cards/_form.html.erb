@@ -1,0 +1,12 @@
+<%= form_with(model: @reader_card, html: { multipart: true }, local: true) do |f| %>
+  <p><%= f.label :id %></p>
+  <p><%= f.text_field :id %></p>
+
+  <p><%= f.label :library_id %></p>
+  <p><%= f.collection_select :library_id, Library.all, :id, :name %></p>
+
+  <p><%= f.label :user_id %></p>
+  <p><%= f.collection_select :User_id, User.all, :id, :full_name %></p>
+
+  <p><%= f.submit %></p>
+<% end %>

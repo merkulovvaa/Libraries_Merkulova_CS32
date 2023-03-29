@@ -1,0 +1,4 @@
+<p>id: <%= @author.id %></p>
+<p>full name: <%= @author.full_name %></p>
+
+<%= button_to "Remove author", author_path(@author), method: :delete %>
