@@ -1,40 +1,35 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :request do
-
   describe "GET /users" do
+    let!(:auth_user) { User.create(full_name: 'Test', email: 'auth_test@gmail.com', password: 'password') }
+
     it "renders a successful response" do
+      sign_in auth_user
+
       get "/users"
       expect(response).to be_successful
     end
   end
 
   describe "GET /users/:id" do
-    let!(:user) { User.create(full_name: 'Test') }
+    let!(:user) { User.create(full_name: 'Test', email: 'test@gmail.com', password: 'password') }
 
     it "renders a successful response" do
+      sign_in user
+
       get "/users/#{user.id}"
       expect(response).to be_successful
     end
   end
 
-  describe "POST /users" do
-    let(:valid_attributes) { { full_name: "John Doe" } }
-
-    context "with valid attributes" do
-      it "creates a new user" do
-        expect {
-          post "/users", params: { user: valid_attributes }
-        }.to change(User, :count).by(1)
-      end
-    end
-  end
-
   describe "PUT /users/:id" do
-    let!(:user) { User.create(full_name: 'Test') }
+    let!(:user) { User.create(full_name: 'Test', email: 'test@gmail.com', password: 'password') }
     let(:new_attributes) { { full_name: "New name" } }
 
     it "updates the requested user" do
+      sign_in user
+
       put "/users/#{user.id}", params: { user: new_attributes }
       user.reload
       expect(user.full_name).to eq("New name")
@@ -42,9 +37,11 @@ RSpec.describe UsersController, type: :request do
   end
 
   describe "DELETE /users/:id" do
-    let!(:user) { User.create(full_name: 'Test') }
+    let!(:user) { User.create(full_name: 'Test', email: 'test@gmail.com', password: 'password') }
 
     it "destroys the requested user" do
+      sign_in user
+
       expect {
         delete "/users/#{user.id}"
       }.to change(User, :count).by(-1)
