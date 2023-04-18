@@ -3,6 +3,5 @@
 <p>name: <%= @library.name %></p>
 <p>address: <%= @library.address %></p>
 <p>phone_number: <%= @library.phone_number %></p>
-<p>genres: <%=@library.genres %>
 
-<%= button_to "Delete", library_path(@library), method: :delete, class: "btn btn-light" %>
+<%= link_to "Users", "/users_info?id=#{@library.id}", class: "btn btn-light" %>

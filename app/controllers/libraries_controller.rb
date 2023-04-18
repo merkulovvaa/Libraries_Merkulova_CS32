@@ -1,6 +1,6 @@
 class LibrariesController < ApplicationController
   def index
-    @libraries = Library.all
+    @libraries = Library.all.page(params[:page]).per(10)
   end
 
   def show

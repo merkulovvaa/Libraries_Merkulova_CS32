@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "users#index"
+  root "library_info#index"
 
   resources :books
   resources :authors
@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   resources :libraries
   resources :users
   resources :reader_cards
+  resources :library_info
+  resources :users_info
+
 end

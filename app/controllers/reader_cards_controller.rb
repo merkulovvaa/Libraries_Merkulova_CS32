@@ -1,10 +1,12 @@
 class ReaderCardsController < ApplicationController
   def index
-    @reader_cards = ReaderCard.all
+    @reader_cards = ReaderCard.all.page(params[:page]).per(10)
   end
 
   def show
     @reader_card = ReaderCard.find_by(id: params[:id])
+    @user = User.find_by(id: params[:id])
+    @library = Library.find_by(id: params[:id])
   end
 
   def new

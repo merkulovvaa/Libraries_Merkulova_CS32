@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module Libraries
   class Application < Rails::Application
+    config.autoload_paths += %W(#{config.root}/app/queries)
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 

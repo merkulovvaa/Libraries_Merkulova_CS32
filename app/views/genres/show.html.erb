@@ -1,4 +1,5 @@
+<h2>Genre info</h2>
 <p>id: <%= @genre.id %></p>
 <p>name: <%= @genre.name %></p>
 
-<%= button_to "Remove genre", genre_path(@genre), method: :delete %>
+<%= button_to "Delete", genre_path(@genre), method: :delete, class: "btn btn-light" %>

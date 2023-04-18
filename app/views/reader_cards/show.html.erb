@@ -1,3 +1,6 @@
+<h2>Reader card info</h2>
 <p>id: <%= @reader_card.id %></p>
+<p>User: <%= @user.full_name %></p>
+<p>Library: <%= @library.name %></p>
 
-<%= button_to "Remove reader_card", reader_card_path(@reader_card), method: :delete %>
+<%= button_to "Delete", reader_card_path(@reader_card), method: :delete, class: "btn btn-light"%>

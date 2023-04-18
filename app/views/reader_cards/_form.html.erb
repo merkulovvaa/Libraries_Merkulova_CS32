@@ -8,5 +8,5 @@
   <p><%= f.label :user_id %></p>
   <p><%= f.collection_select :User_id, User.all, :id, :full_name %></p>
 
-  <p><%= f.submit %></p>
+  <p><%= f.submit class:"btn btn-light" %></p>
 <% end %>

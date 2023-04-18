@@ -1,3 +1,20 @@
-<% @reader_cards.each do |reader_card| %>
-  <p>id: <%= reader_card.id %></p>
-<% end %>
+
+<table class="table table-hover table-bordered">
+  <thead>
+  <th>ID</th>
+  <th>User ID</th>
+  <th>Library ID</th>
+  </thead>
+  <tbody>
+  <% @reader_cards.each do |reader_card| %>
+    <tr>
+      <td><%= reader_card.id %></td>
+      <td><%= reader_card.user_id %></td>
+      <td><%= reader_card.library_id %></td>
+      <td><%= link_to "Update", controller: "reader_cards", action: "edit", id: reader_card.id %></td>
+      <td><%= link_to "Delete", controller: "reader_cards", action: "destroy", id: reader_card.id, method: :delete, data: { confirm: "Allow?" } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= paginate @reader_cards, class: { previous_label: "btn btn-primary", next_label: "btn btn-secondary", inner_window: "btn btn-outline-primary" } %>

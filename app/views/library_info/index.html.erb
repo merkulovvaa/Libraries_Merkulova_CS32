@@ -1,0 +1,22 @@
+
+<table class="table table-hover table-bordered">
+  <thead>
+  <th>ID</th>
+  <th>Library Name    <%= link_to "▼", { sort_by: "name" }, class: "text-dark" %><%= form_tag library_info_index_path, method: :get do %><%= text_field_tag :search_term, params[:search_term] %><%= submit_tag "Search" %><% end %></th>
+  <th>Number of Books <%= link_to "▼", { sort_by: "books.count" }, class: "text-dark" %></th>
+  <th>Number of Genres<%= link_to "▼", { sort_by: "genres.count" }, class: "text-dark" %></th>
+  <th>Show</th>
+  </thead>
+  <tbody>
+  <% @libraries.each do |library| %>
+    <tr>
+      <td><%= library.id %></td>
+      <td><%= library.name %></td>
+      <td><%= library.books.count %></td>
+      <td><%= library.genres.count %></td>
+      <td><%= link_to "Link", controller: "library_info", action: "show", id: library.id %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= paginate @libraries, class: { previous_label: "btn btn-primary", next_label: "btn btn-secondary", inner_window: "btn btn-outline-primary" } %>

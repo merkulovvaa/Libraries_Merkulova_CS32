@@ -1,0 +1,24 @@
+<table class="table table-hover table-bordered">
+  <thead>
+  <th>Id</th>
+  <th>Full Name</th>
+  <th>User age</th>
+  <th>Card number</th>
+  <th>Card</th>
+  <th>Show</th>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <% reader_card = @library.reader_cards.find_by(user_id: user.id)%>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.full_name %></td>
+      <td><%= user.age %></td>
+      <td><%= reader_card.id %></td>
+      <td><%= link_to "Link", controller: "reader_cards", action: "show", id: reader_card.id %></td>
+      <td><%= link_to "Link", controller: "users", action: "show", id: user.id %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= paginate @users %>

@@ -30,4 +30,8 @@ class User < ApplicationRecord
   def self.sql_update_table(id)
     ActiveRecord::Base.connection.execute("UPDATE users SET full_name = '#{Faker::Name.name}', birth_date = '#{Faker::Date.between(from: '1940-01-01', to: Date.today)}' WHERE id = #{id};")
   end
+
+  def age
+    (Time.zone.now.to_date - birth_date).to_i / 365
+  end
 end

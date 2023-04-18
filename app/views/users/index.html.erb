@@ -1,4 +1,21 @@
-<% @users.each do |user| %>
-  <p>id: <%= user.id %></p>
-  <p>email: <%= user.email %></p>
-<% end %>
+<table class="table table-hover table-bordered">
+  <thead>
+  <th>Id</th>
+  <th>Full Name</th>
+  <th>Email</th>
+  <th>Birth Date</th>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.full_name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.birth_date %></td>
+      <td><%= link_to "Update", controller: "users", action: "edit", id: user.id %></td>
+      <td><%= link_to "Delete", controller: "users", action: "destroy", id: user.id, method: :delete, data: { confirm: "Allow?" } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= paginate @users, class: { previous_label: "btn btn-primary", next_label: "btn btn-secondary", inner_window: "btn btn-outline-primary" } %>
