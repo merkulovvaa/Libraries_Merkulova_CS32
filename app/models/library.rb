@@ -4,8 +4,11 @@
 #
 #  id           :integer          not null, primary key
 #  address      :string
+#  city         :string
 #  name         :string
 #  phone_number :string
+#  year         :integer
+#  zip_code     :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
