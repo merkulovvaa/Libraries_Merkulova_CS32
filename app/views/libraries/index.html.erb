@@ -4,6 +4,9 @@
   <th>Name</th>
   <th>Address</th>
   <th>Phone number</th>
+  <th>Update</th>
+  <th>Delete</th>
+  <th>Download PDF</th>
   </thead>
   <tbody>
   <% @libraries.each do |library| %>
@@ -14,8 +17,11 @@
       <td><%= library.phone_number %></td>
       <td><%= link_to "Update", controller: "libraries", action: "edit", id: library.id %></td>
       <td><%= link_to "Delete", action: "destroy", id: library.id, method: :delete, data: { confirm: "Allow?" } %></td>
+      <td><%= link_to "Download PDF", download_path(id: library.id) %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
+<td><%= link_to "Download All PDF", downloadAll_url, { class: "button" } %></td>
+<td><%= link_to "Download All CSV", downloadCsv_url, { class: "button" } %></td>
 <%= paginate @libraries, class: { previous_label: "btn btn-primary", next_label: "btn btn-secondary", inner_window: "btn btn-outline-primary" } %>

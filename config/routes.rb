@@ -13,5 +13,8 @@ Rails.application.routes.draw do
   resources :reader_cards
   resources :library_info
   resources :users_info
-
+  get '/download/:id' =>'downloader#download', as: 'download'
+  get '/downloadAll' =>'downloader#downloadAll'
+  get '/downloadUsers' =>'downloader#downloadUsers'
+  get '/downloadCsv' =>'downloader#downloadCsv'
 end

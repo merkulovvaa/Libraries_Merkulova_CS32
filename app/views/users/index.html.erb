@@ -18,4 +18,5 @@
   <% end %>
   </tbody>
 </table>
+<%= link_to "Download PDF", downloadUsers_url, { class: "button" } %>
 <%= paginate @users, class: { previous_label: "btn btn-primary", next_label: "btn btn-secondary", inner_window: "btn btn-outline-primary" } %>
