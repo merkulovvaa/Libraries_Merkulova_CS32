@@ -1,4 +1,10 @@
 <%= form_with(model: @user, html: { multipart: true }, local: true) do |f| %>
+
+  <div>
+    <%=f.label :image %>
+    <%=f.file_field :image %>
+  </div>
+
   <p><%= f.label :full_name %></p>
   <p><%= f.text_field :full_name %></p>
 
@@ -6,4 +12,5 @@
   <p><%= f.text_field :birth_date%></p>
 
   <p><%= f.submit class:"btn btn-light" %></p>
+
 <% end %>

@@ -34,4 +34,6 @@ class User < ApplicationRecord
   def age
     (Time.zone.now.to_date - birth_date).to_i / 365
   end
+
+  has_one_attached :image
 end

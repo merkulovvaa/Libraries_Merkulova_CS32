@@ -4,4 +4,6 @@
 <p>Birthday: <%= @user.birth_date %></p>
 <p>email: <%= @user.email %></p>
 
+<%=image_tag(@user.image) %>
+
 <%= button_to "Delete", user_path(@user), method: :delete, class: "btn btn-light" %>
